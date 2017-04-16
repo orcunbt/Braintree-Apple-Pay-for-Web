@@ -81,7 +81,7 @@ e.preventDefault();
     			'name', 'phone', 'email', 'postalAddress'
     		]
         });
-        console.log(paymentRequest.countryCode);
+                console.log(paymentRequest.countryCode);
 		console.log(paymentRequest.currencyCode);
 		console.log(paymentRequest.merchantCapabilities);
 		console.log(paymentRequest.supportedNetworks);
@@ -117,7 +117,7 @@ e.preventDefault();
                 console.log('Your shipping address is:', event.payment.shippingContact);
             }
 			
-			// tokenize method tokenizes the buyer Apple Pay account and creates a payment nonce.
+	    // tokenize method tokenizes the buyer Apple Pay account and creates a payment nonce.
             btApplePayInstance.tokenize({
                 token: event.payment.token
             }, function (tokenizeErr, payload) {
@@ -128,15 +128,14 @@ e.preventDefault();
                 }
                 session.completePayment(ApplePaySession.STATUS_SUCCESS);
 				
-				console.log(JSON.stringify(event), null, 4);
                 // Payment nonce retrieved
-				alert("Payment nonce is " + payload.nonce + " . Send it to your server-side to create a transaction!" + "\n\n" + "Entire payload returned: " + JSON.stringify(payload, null, 4) + "\n\n" + "Your shipping address is: \n" + JSON.stringify(event.payment.shippingContact), null, 4);
+		alert("Payment nonce is " + payload.nonce + " . Send it to your server-side to create a transaction!" + "\n\n" + "Entire payload returned: " + JSON.stringify(payload, null, 4) + "\n\n" + "Your shipping address is: \n" + JSON.stringify(event.payment.shippingContact), null, 4);
 				
-				// Add the nonce to the form
-				document.forms["applePayForm"].elements["payment_method_nonce"].value = payload.nonce;
+		// Add the nonce to the form
+		document.forms["applePayForm"].elements["payment_method_nonce"].value = payload.nonce;
 
-				//Automatically submit the form
-				document.getElementById("applePayForm").submit();
+		//Automatically submit the form
+		document.getElementById("applePayForm").submit();
                 
             });
         }
