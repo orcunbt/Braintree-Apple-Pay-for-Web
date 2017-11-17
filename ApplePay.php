@@ -31,8 +31,8 @@ $clientToken = Braintree_ClientToken::generate();
 
 
 	<!-- Load Braintree JS libraries for Apple Pay -->
-	<script src="https://js.braintreegateway.com/web/3.19.1/js/client.min.js"></script>
-	<script src="https://js.braintreegateway.com/web/3.19.1/js/apple-pay.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.26.0/js/client.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.26.0/js/apple-pay.min.js"></script>
 	
 <script>
 
