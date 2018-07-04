@@ -3,7 +3,14 @@
 
 require_once('braintree-php-3.22.0/lib/Braintree.php'); 
 
-$clientToken = Braintree_ClientToken::generate();
+$gateway = new Braintree_Gateway([
+    'environment' => 'sandbox',
+    'merchantId' => 'MERCHANT_ID',
+    'publicKey' => 'PUBLIC_KEY',
+    'privateKey' => 'PRIVATE_KEY'
+]);
+
+$clientToken = $gateway->clientToken()->generate();
 
 ?>
 
@@ -31,8 +38,8 @@ $clientToken = Braintree_ClientToken::generate();
 
 
 	<!-- Load Braintree JS libraries for Apple Pay -->
-	<script src="https://js.braintreegateway.com/web/3.26.0/js/client.min.js"></script>
-	<script src="https://js.braintreegateway.com/web/3.26.0/js/apple-pay.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.34.0/js/client.min.js"></script>
+	<script src="https://js.braintreegateway.com/web/3.34.0/js/apple-pay.min.js"></script>
 	
 <script>
 
